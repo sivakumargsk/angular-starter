@@ -1,12 +1,12 @@
 <!--
-  property binding []
+  property binding [] => input
   eg : element['value'] = 'Hello';
 
-  event binding ()
+  event binding () => output
   eg : (click)="foo()"
  -->
 <div class='counter'>
   <button (click)="decrement()">Decrement</button>
-  <input type="text" [value]="count">
+  <input type="text" [value]="count" (change)="onInputChange($event.target.value)">
   <button (click)="increment()">Increment</button>
 </div>
