@@ -1,0 +1,35 @@
+<!-- ngForm -> '#f'
+ngModel -> 'name'
+ngModelGroup -> 'account'
+             -> ngModel -> 'email'
+             -> ngModel -> 'confirm' -->
+
+
+<md-card class="demo-card demo-basic">
+  <md-toolbar color="primary">Signup Form</md-toolbar>
+  <md-card-content>
+    <form noValidate (ngSubmit)="onSubmit(f)" #f='ngForm'>
+      <div>
+        <md-form-field>
+          <input required type="text" name="name" id="fullname" placeholder="Your full name" [(ngModel)]="user.name" mdInput>
+        </md-form-field>
+      </div>
+      <div ngModelGroup="account">
+        <div>
+          <md-form-field>
+            <input required type="email" name="email" id="email" placeholder="Your email address" [(ngModel)]="user.account.email" mdInput>
+          </md-form-field>
+        </div>
+        <div>
+          <md-form-field>
+            <input required type="email" name="confirm" id="confirm" placeholder="Confirm your email address" [(ngModel)]="user.account.confirm"
+              mdInput>
+          </md-form-field>
+        </div>
+      </div>
+      <button md-raised-button color="primary" [disabled]="f.invalid">Primary</button>
+      <p>{{ f.value | json}}</p>
+      <p>{{ user | json}}</p>
+    </form>
+  </md-card-content>
+</md-card>
