@@ -169,6 +169,31 @@ export class AppComponent {
     ]
   };
 
+  paths = [
+    { lat: 0, lng: 10 },
+    { lat: 0, lng: 20 },
+    { lat: 10, lng: 20 },
+    { lat: 10, lng: 10 },
+    { lat: 0, lng: 10 }
+  ];
+  // Nesting paths will create a hole where they overlap;
+  nestedPaths = [
+    [
+      { lat: 0, lng: 10 },
+      { lat: 0, lng: 20 },
+      { lat: 10, lng: 20 },
+      { lat: 10, lng: 10 },
+      { lat: 0, lng: 10 }
+    ],
+    [
+      { lat: 0, lng: 15 },
+      { lat: 0, lng: 20 },
+      { lat: 5, lng: 20 },
+      { lat: 5, lng: 15 },
+      { lat: 0, lng: 15 }
+    ]
+  ];
+
   clicked(clickEvent) {
     console.log(clickEvent);
   }

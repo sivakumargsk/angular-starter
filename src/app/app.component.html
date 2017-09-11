@@ -52,15 +52,24 @@
   </agm-marker-cluster>
 </agm-map> -->
 
+<!--
 <agm-map [latitude]="lat"
   [longitude]="lng"
   [zoom]="zoom"
   [fullscreenControl]='true'
   [mapTypeControl]='true'>
-  <!-- <agm-kml-layer [url]="'https://clydeelectronics.co.uk/kmlfiles/dvsites.kml'"
+  <agm-kml-layer [url]="'https://clydeelectronics.co.uk/kmlfiles/dvsites.kml'"
     [zIndex]="2"></agm-kml-layer>
   <agm-kml-layer [url]="'https://clydeelectronics.co.uk/kmlfiles/previoususe.kml'"
-    [zIndex]="3"></agm-kml-layer> -->
+    [zIndex]="3"></agm-kml-layer>
   <agm-kml-layer [url]="'https://clydeelectronics.co.uk/kmlfiles/materialsnetwork.kml'"
     [zIndex]="4"></agm-kml-layer>
+</agm-map> -->
+
+
+<agm-map [latitude]="lat"
+  [longitude]="lng"
+  [zoom]="zoom">
+  <agm-polygon [paths]="nestedPaths">
+  </agm-polygon>
 </agm-map>
