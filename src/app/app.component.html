@@ -2,12 +2,65 @@
 
 <!-- this creates a google map on the page with the given lat/lng from -->
 <!-- the component as the initial center of the map: -->
-<agm-map [latitude]="lat"
+
+<!-- <agm-map [latitude]="lat"
   [longitude]="lng">
+  <agm-circle [circleDraggable]="true"
+    [editable]="true"
+    [latitude]="lat"
+    [longitude]="lng"
+    [radius]="5000">
+  </agm-circle>
   <agm-marker [latitude]="lat"
     [longitude]="lng">
-    <agm-info-window>
+    <agm-info-window [isOpen]="true"
+      (infoWindowClose)="infoWindowClose($event)">
       My Home
     </agm-info-window>
   </agm-marker>
+</agm-map> -->
+
+
+<!-- <agm-map [latitude]="lat"
+  [longitude]="lng"
+  [zoom]="zoom"
+  [fullscreenControl]='true'
+  [mapTypeControl]='true'>
+  <agm-data-layer [geoJson]="geoJsonObject"
+    (layerClick)="clicked($event)"
+    [style]="styleFunc">
+  </agm-data-layer>
+</agm-map> -->
+<!--
+<agm-map [latitude]="lat"
+  [longitude]="lng"
+  [zoom]="zoom"
+  [fullscreenControl]='true'
+  [mapTypeControl]='true'>
+  <agm-data-layer [geoJson]="geoData">
+  </agm-data-layer>
+</agm-map> -->
+
+<!-- <agm-map style="height: 800px"
+  [latitude]="51.673858"
+  [longitude]="7.815982"
+  [mapTypeId]="'terrain'">
+  <agm-marker-cluster [imagePath]="'https://googlemaps.github.io/js-marker-clusterer/images/m'">
+    <agm-marker *ngFor="let marker of geoData.features"
+      [latitude]="marker.geometry.coordinates[0]"
+      [longitude]="marker.geometry.coordinates[1]"></agm-marker>
+  </agm-marker-cluster>
+</agm-map> -->
+
+<agm-map [latitude]="lat"
+  [longitude]="lng"
+  [zoom]="zoom"
+  [fullscreenControl]='true'
+  [mapTypeControl]='true'>
+  <!-- <agm-kml-layer [url]="'https://clydeelectronics.co.uk/kmlfiles/dvsites.kml'"
+    [zIndex]="2"></agm-kml-layer>
+  <agm-kml-layer [url]="'https://clydeelectronics.co.uk/kmlfiles/previoususe.kml'"
+    [zIndex]="3"></agm-kml-layer> -->
+  <agm-kml-layer [url]="'https://clydeelectronics.co.uk/kmlfiles/materialsnetwork.kml'"
+    [zIndex]="4"></agm-kml-layer>
 </agm-map>

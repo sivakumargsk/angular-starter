@@ -8,6 +8,8 @@ import { MyHighlightDirective } from './my-highlight.directive';
 
 import { AgmCoreModule } from '@agm/core';
 
+import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
+
 @NgModule({
   declarations: [AppComponent, MyHighlightDirective],
   imports: [
@@ -16,7 +18,8 @@ import { AgmCoreModule } from '@agm/core';
     FormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA1JKR48r3BmuvNxnUtvv9w_at3rdjKikw'
-    })
+    }),
+    AgmJsMarkerClustererModule
   ],
   providers: [],
   bootstrap: [AppComponent]
