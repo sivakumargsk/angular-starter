@@ -4,14 +4,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
-import { MyHighlightDirective } from './my-highlight.directive';
-
 import { AgmCoreModule } from '@agm/core';
-
 import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
 
 @NgModule({
-  declarations: [AppComponent, MyHighlightDirective],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     CommonModule,
