@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 
 import { AgmCoreModule } from '@agm/core';
 import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
+import { GoogleMapDirectionsDirective } from './google-map-directions.directive';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, GoogleMapDirectionsDirective],
   imports: [
     BrowserModule,
     CommonModule,

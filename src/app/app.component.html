@@ -1,77 +1,10 @@
 <h1>{{ title }}</h1>
-
 <div>
-  <div class="form-group">
-    <input placeholder="search for location"
-      autocorrect="off"
-      autocapitalize="off"
-      spellcheck="off"
-      type="text"
-      class="form-control"
-      #search
-      [formControl]="searchControl">
-  </div>
-
   <agm-map [latitude]="lat"
     [longitude]="lng"
-    [zoom]="zoom"
-    [fullscreenControl]='true'
-    [mapTypeControl]='true'>
-
-    <agm-marker [latitude]="lat"
-      [longitude]="lng">
-      <agm-info-window [isOpen]="true">
-        Current Location or searched Location
-      </agm-info-window>
-    </agm-marker>
-
-    <agm-marker [latitude]="17.7386225"
-      [longitude]="83.1225071">
-      <agm-info-window [isOpen]="true">
-        My Home
-      </agm-info-window>
-    </agm-marker>
-
-    <agm-circle [circleDraggable]="true"
-      [editable]="true"
-      [latitude]="47.6548745"
-      [longitude]="57.9395101"
-      [radius]="1500000">
-    </agm-circle>
-
-    <agm-data-layer [geoJson]="geoJsonObject"
-      (layerClick)="clicked($event)"
-      [style]="styleFunc">
-    </agm-data-layer>
-
-    <agm-data-layer [geoJson]="geoData">
-    </agm-data-layer>
-
-    <agm-marker-cluster [imagePath]="'https://googlemaps.github.io/js-marker-clusterer/images/m'">
-      <agm-marker *ngFor="let marker of markerClusterData"
-        [latitude]="marker.lat"
-        [longitude]="marker.lng"></agm-marker>
-    </agm-marker-cluster>
-
-    <!-- <agm-kml-layer [url]="'https://clydeelectronics.co.uk/kmlfiles/dvsites.kml'"
-      [zIndex]="2"></agm-kml-layer>
-    <agm-kml-layer [url]="'https://clydeelectronics.co.uk/kmlfiles/previoususe.kml'"
-      [zIndex]="3"></agm-kml-layer>
-    <agm-kml-layer [url]="'https://clydeelectronics.co.uk/kmlfiles/materialsnetwork.kml'"
-      [zIndex]="4"></agm-kml-layer> -->
-
-
-    <agm-polygon [paths]="nestedPaths">
-    </agm-polygon>
-
-    <agm-polyline>
-      <agm-polyline-point [latitude]="17.4122998"
-        [longitude]="78.2679614">
-      </agm-polyline-point>
-      <agm-polyline-point [latitude]="17.7386225"
-        [longitude]="83.1225071">
-      </agm-polyline-point>
-    </agm-polyline>
-
+    [zoom]="zoom">
+    <appGoogleMapDirections [origin]="origin"
+      [destination]="destination">
+    </appGoogleMapDirections>
   </agm-map>
 </div>
