@@ -1,0 +1,21 @@
+<div>
+  <button (click)="setActivePage(1)"
+    [disabled]="isActivePageEqualToOne()"> << </button>
+  <button (click)="previousPageOnClick()"
+    [disabled]="isActivePageEqualToOne()"> < </button>
+
+  <button *ngIf="activePage > 2"
+    disabled="true">...</button>
+
+  <button *ngFor="let item of generatePageNumbersList(activePage, maxButtons, items)"
+    (click)="setActivePage(item)"> {{ item }} </button>
+
+  <button *ngIf="(items - activePage) > 2"
+    disabled="true">...</button>
+
+
+  <button (click)="nextPageOnClick()"
+    [disabled]="isActivePageEqualToItems()"> > </button>
+  <button (click)="setActivePage(items)"
+    [disabled]="isActivePageEqualToItems()"> >> </button>
+</div>

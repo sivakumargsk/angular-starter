@@ -1,0 +1,21 @@
+<div>
+  <app-add-todo (addNewTodo)="addNewTodo($event)">
+  </app-add-todo>
+
+  <app-todo-list [todos]="todosByVisibilityFilterAndPageIndex()"
+    (toggleTodo)="toggleTodo($event)"
+    (removeTodo)="removeTodo($event)">
+  </app-todo-list>
+
+  <app-todo-fotter [pageIndex]="pageIndex"
+    [pageSize]="pageSize"
+    [maxButtons]="maxButtons"
+    [items]="todosLengthByVisibilityFilter()"
+    (setPageIndex)="setPageIndex($event)"
+    (setVisibilityFilter)="setVisibilityFilter($event)">
+  </app-todo-fotter>
+
+  <p>
+    {{ todos | json }}
+  </p>
+</div>

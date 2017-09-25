@@ -1,0 +1,10 @@
+<div>
+  <input type="checkbox"
+    name="toggleTodo"
+    [id]="todo.id"
+    [checked]="todo.completed"
+    (change)="toggleTodo.emit(todo.id)">
+  <label [for]="todo.id"> {{ todo.text }} </label>
+  <button type="button"
+    (click)="removeTodo.emit(todo.id)"> Remove </button>
+</div>

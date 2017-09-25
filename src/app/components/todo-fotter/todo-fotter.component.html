@@ -1,0 +1,16 @@
+<div>
+  <app-pagination [activePage]="pageIndex"
+    [maxButtons]="maxButtons"
+    [items]="items"
+    (onSelect)="setPageIndex.emit($event)">
+  </app-pagination>
+  <button (click)="setVisibilityFilter.emit('ALL')">
+    All
+  </button>
+  <button (click)="setVisibilityFilter.emit('ACTIVE')">
+    Active
+  </button>
+  <button (click)="setVisibilityFilter.emit('COMPLETED')">
+    Completed
+  </button>
+</div>

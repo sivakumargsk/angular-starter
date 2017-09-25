@@ -1,0 +1,10 @@
+<div>
+  <ul>
+    <li *ngFor="let todo of todos">
+      <app-todo-row [todo]="todo"
+        (toggleTodo)="toggleTodo.emit($event)"
+        (removeTodo)="removeTodo.emit($event)">
+      </app-todo-row>
+    </li>
+  </ul>
+</div>

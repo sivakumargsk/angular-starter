@@ -1,0 +1,9 @@
+<form #f="ngForm"
+  (ngSubmit)="onSubmit(f)">
+  <input type="text"
+    name="todoText"
+    ngModel
+    required>
+  <button type="submit"
+    [disabled]="f.invalid">Add Todo</button>
+</form>
