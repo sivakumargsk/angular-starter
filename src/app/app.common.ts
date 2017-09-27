@@ -1,15 +1,9 @@
-export interface Todo {
-  id: number;
-  text: string;
-  completed: boolean;
-}
-
-export type VisibilityFilter = 'ALL' | 'ACTIVE' | 'COMPLETED';
+import { TodoInterface, VisibilityFilterType } from './todos-interface';
 
 export const showTodosByVisibilityFilter = (
-  visibilityFilter: string,
-  todos: Todo[]
-): Todo[] => {
+  visibilityFilter: VisibilityFilterType,
+  todos: TodoInterface[]
+): TodoInterface[] => {
   switch (visibilityFilter) {
     case 'ALL':
       return todos;
