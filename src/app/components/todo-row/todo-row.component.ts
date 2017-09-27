@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Todo } from '../../app.common';
+import { TodoInterface } from '../../todos-interface';
 
 @Component({
   selector: 'app-todo-row',
@@ -7,7 +7,7 @@ import { Todo } from '../../app.common';
   styleUrls: ['./todo-row.component.css']
 })
 export class TodoRowComponent {
-  @Input() todo: Todo;
+  @Input() todo: TodoInterface;
   @Output() toggleTodo: EventEmitter<number> = new EventEmitter<number>();
   @Output() removeTodo: EventEmitter<number> = new EventEmitter<number>();
 }

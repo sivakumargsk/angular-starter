@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  Todo,
-  VisibilityFilter,
-  showTodosByVisibilityFilter
-} from '../../app.common';
+import { TodoInterface, VisibilityFilterType } from '../../todos-interface';
+import { showTodosByVisibilityFilter } from '../../app.common';
 
 @Component({
   selector: 'app-todos',
@@ -12,8 +9,8 @@ import {
 })
 export class TodosComponent {
   nextId = 1;
-  todos: Todo[] = [];
-  visibilityFilter: VisibilityFilter = 'ALL';
+  todos: TodoInterface[] = [];
+  visibilityFilter: VisibilityFilterType = 'ALL';
   pageIndex = 1;
   pageSize = 5;
   maxButtons = 5;
@@ -41,7 +38,7 @@ export class TodosComponent {
     this.todos = oldTodos.filter(todo => todo.id !== todoId);
   }
 
-  setVisibilityFilter(visibilityFilter: VisibilityFilter) {
+  setVisibilityFilter(visibilityFilter: VisibilityFilterType) {
     this.visibilityFilter = visibilityFilter;
   }
 
