@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoInterface, VisibilityFilterType } from '../../todos-interface';
 import { showTodosByVisibilityFilter } from '../../app.common';
+import { List } from 'immutable';
 
 @Component({
   selector: 'app-todos',
@@ -9,7 +10,7 @@ import { showTodosByVisibilityFilter } from '../../app.common';
 })
 export class TodosComponent {
   nextId = 1;
-  todos: TodoInterface[] = [];
+  todos: List<TodoInterface> = List([]);
   visibilityFilter: VisibilityFilterType = 'ALL';
   pageIndex = 1;
   pageSize = 5;
@@ -21,21 +22,21 @@ export class TodosComponent {
       text: todoText,
       completed: false
     };
-    this.todos = [...this.todos, newTodo];
+    this.todos = this.todos.push(newTodo);
     this.nextId += 1;
   }
 
   toggleTodo(todoId: number) {
-    const oldTodos = this.todos;
-    this.todos = oldTodos.map(
-      todo =>
-        todo.id === todoId ? { ...todo, completed: !todo.completed } : todo
-    );
+    this.todos = this.todos
+      .map(
+        todo =>
+          todo.id === todoId ? { ...todo, completed: !todo.completed } : todo
+      )
+      .toList();
   }
 
   removeTodo(todoId: number) {
-    const oldTodos = this.todos;
-    this.todos = oldTodos.filter(todo => todo.id !== todoId);
+    this.todos = this.todos.filter(todo => todo.id !== todoId).toList();
   }
 
   setVisibilityFilter(visibilityFilter: VisibilityFilterType) {
@@ -51,7 +52,7 @@ export class TodosComponent {
       this.visibilityFilter,
       this.todos
     );
-    return Math.ceil(filteredTodos.length / this.pageSize);
+    return Math.ceil(filteredTodos.count() / this.pageSize);
   }
 
   todosByVisibilityFilterAndPageIndex() {
@@ -60,7 +61,7 @@ export class TodosComponent {
       this.todos
     );
     const beginValue = (this.pageIndex - 1) * this.pageSize;
-    const endValue = (this.pageIndex + this.pageSize) * this.pageSize;
+    const endValue = this.pageIndex + this.pageSize;
     return filteredTodos.slice(beginValue, endValue);
   }
 }
